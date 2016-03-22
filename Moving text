@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script>
+      text = "This is the text!";
+      x = 0;
+
+      function move() {
+        for (i=0; i<text.length; i++) {
+          document.getElementById('text'+i).style.top = 100*Math.sin(x+i/8)+300;
+          document.getElementById('text'+i).style.left = 300*Math.cos(x+i/8)+400;
+          document.getElementById('text'+i).style.fontSize = 30-30*Math.sin(x+i/8)+10;
+          x-=0.002;
+        }
+        setTimeout('move()', 10);
+      }
+
+    </script>
+  </head>
+  <body>
+    <script>
+      for (i=0; i<text.length; i++) {
+        document.write('<div id="text'+i+'" style="position: absolute; font-size: 30px; left:'+i*30+'">'+text.charAt(i)+'</div>');
+      }
+      move();
+    </script>
+  </body>
+</html>
